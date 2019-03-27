@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StarChart.Data;
+
 namespace StarChart
 {
     public class Startup
@@ -20,6 +21,7 @@ namespace StarChart
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMvc();
+            
         }
     }
 }
