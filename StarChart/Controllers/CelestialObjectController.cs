@@ -79,7 +79,19 @@ namespace StarChart.Controllers
           var existingObject=_context.CelestialObjects.Find();
           if (existingObject==null)
           return NotFound();
+          existingObject.Name= name;
+          return NoContent();
 
+      }
+      [HttpDelete("{id}")]
+      public IActionResult Delete(int id)
+      {
+          var celastialObjects=_context.CelestialObjects.Where(e => e.Id==id || e.OrbitedObjectId==id);
+          if(celastialObjects.Any());
+          return NotFound();
+          _context.CelestialObjects.RemoveRange(celastialObjects);
+          _context.SaveChanges();
+          return NoContent();
       }
       
     }
